@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.pers.fixtures.ActionsUtil;
+import com.pers.fixtures.WebTableUtil;
 import com.pers.utils.Browser;
 import com.pers.utils.CustomeExceptionUtil;
 import com.pers.utils.ExcelUtil;
@@ -107,8 +108,9 @@ public class Rediff_HomePage {
 		}
 
 		// Verify the rows in Watchlist table
-		List<WebElement> rowsWatchlist = driver.findElements(By.xpath("//table[@class='dataTable sortable']/tbody/tr"));
-		int actRows = rowsWatchlist.size();
+		// List<WebElement> rowsWatchlist = driver.findElements(By.xpath("//table[@class='dataTable sortable']/tbody/tr"));
+		int actRows = WebTableUtil.getTableRowCount("//table[@class='dataTable sortable']/tbody");
+		// int actRows = rowsWatchlist.size();
 		String sActRows = String.valueOf(actRows - 1);
 		String expRows = ExcelUtil.objTestDataMap.get("WatchlistRows");
 

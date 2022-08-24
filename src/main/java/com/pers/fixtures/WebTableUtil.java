@@ -10,7 +10,7 @@ import com.pers.utils.Browser;
 
 public class WebTableUtil {
 
-	public int getTableRowCount(String strTableXpath) {
+	public static int getTableRowCount(String strTableXpath) {
 		// Variable declaration
 		List<WebElement> eleTableRows = null;
 		WebElement WebTable = null;
