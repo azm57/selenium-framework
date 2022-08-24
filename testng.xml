@@ -3,13 +3,13 @@
 <suite name="Suite" verbose="2" parallel="false"
 	allow-return-values="false">
 	 <listeners>
-		<listener class-name="com.epam.utils.report.TestLevelReporting" />
-		<listener class-name="com.epam.utils.report.CustomSummaryReport" />
+		<listener class-name="com.pers.utils.report.TestLevelReporting" />
+		<listener class-name="com.pers.utils.report.CustomSummaryReport" />
 	</listeners> 
 		
 	<test verbose="2" name="Test one">
 		<classes>
-			<class name="com.epam.scenarios.Craftsvilla">
+			<class name="com.pers.scenarios.Craftsvilla">
 				<methods>
 		        	<include name="UserRegistration" />
 		        	<include name="CartList" />
