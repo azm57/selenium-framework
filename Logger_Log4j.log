@@ -1,9 +1,0 @@
-2022-08-23 21:22:08,628 main INFO  report.Log - Signin Link found and clicked successfully
-2022-08-23 21:22:15,956 main INFO  report.Log - Email entered successfully
-2022-08-23 21:22:17,263 main INFO  report.Log - Password entered successfully
-2022-08-23 21:22:18,556 main INFO  report.Log - SignIn button found and clicked successfully
-2022-08-23 21:22:19,022 main INFO  report.Log - SignIn Successfull
-2022-08-23 21:22:19,906 main INFO  report.Log - Watchlist Link found and clicked successfully
-2022-08-23 21:22:21,355 main INFO  report.Log - Watchlist table presence verified on page successfully
-2022-08-23 21:22:23,692 main INFO  report.Log - Watchlist Rows did matched successfully 9
-2022-08-23 21:22:24,437 main INFO  report.Log - Signout button found and clicked successfully
