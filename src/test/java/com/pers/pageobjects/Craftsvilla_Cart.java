@@ -1,4 +1,4 @@
-package com.epam.pageobjects;
+package com.pers.pageobjects;
 
 
 import java.util.List;
@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
-import com.epam.fixtures.ActionsUtil;
-import com.epam.utils.Browser;
-import com.epam.utils.CustomeExceptionUtil;
-import com.epam.utils.report.Log;
+import com.pers.fixtures.ActionsUtil;
+import com.pers.utils.Browser;
+import com.pers.utils.CustomeExceptionUtil;
+import com.pers.utils.report.Log;
 
 public class Craftsvilla_Cart {
 	

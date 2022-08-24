@@ -1,4 +1,4 @@
-package com.epam.utils;
+package com.pers.utils;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;

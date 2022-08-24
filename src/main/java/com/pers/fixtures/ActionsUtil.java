@@ -1,4 +1,4 @@
-package com.epam.fixtures;
+package com.pers.fixtures;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,8 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 
-import com.epam.utils.Browser;
 import com.google.common.base.Function;
+import com.pers.utils.Browser;
 
 
 public class ActionsUtil {

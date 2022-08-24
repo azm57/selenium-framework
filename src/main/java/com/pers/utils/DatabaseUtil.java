@@ -1,4 +1,4 @@
-package com.epam.utils;
+package com.pers.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

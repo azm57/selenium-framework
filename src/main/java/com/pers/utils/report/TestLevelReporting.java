@@ -1,10 +1,10 @@
-package com.epam.utils.report;
+package com.pers.utils.report;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.epam.fixtures.ScreenshotUtil;
+import com.pers.fixtures.ScreenshotUtil;
 
 public class TestLevelReporting implements ITestListener {
 

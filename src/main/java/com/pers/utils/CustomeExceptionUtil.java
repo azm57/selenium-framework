@@ -1,4 +1,4 @@
-package com.epam.utils;
+package com.pers.utils;
 
 public class CustomeExceptionUtil extends Exception {
 	

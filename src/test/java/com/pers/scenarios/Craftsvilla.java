@@ -1,9 +1,10 @@
-package com.epam.scenarios;
+package com.pers.scenarios;
 
 import org.testng.annotations.Test;
-import com.epam.pageobjects.ObjectLibraryWrapper;
-import com.epam.utils.Browser;
-import com.epam.utils.ExcelUtil;
+
+import com.pers.pageobjects.ObjectLibraryWrapper;
+import com.pers.utils.Browser;
+import com.pers.utils.ExcelUtil;
 
 public class Craftsvilla 
 {

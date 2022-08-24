@@ -1,9 +1,9 @@
-package com.epam.fixtures;
+package com.pers.fixtures;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-import com.epam.utils.Browser;
+import com.pers.utils.Browser;
 
 class ScrollUtil
 {

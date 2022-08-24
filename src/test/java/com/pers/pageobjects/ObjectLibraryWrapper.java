@@ -1,8 +1,8 @@
-package com.epam.pageobjects;
+package com.pers.pageobjects;
 
 import org.openqa.selenium.support.PageFactory;
 
-import com.epam.utils.Browser;
+import com.pers.utils.Browser;
 
 public class ObjectLibraryWrapper {
 
@@ -27,12 +27,12 @@ public class ObjectLibraryWrapper {
 	}
 	
 	public static Craftsvilla_WishListPage getobjCraftsvilla_wishlistPage(){
-		return PageFactory.initElements(com.epam.utils.Browser.getDriver(), Craftsvilla_WishListPage.class);
+		return PageFactory.initElements(com.pers.utils.Browser.getDriver(), Craftsvilla_WishListPage.class);
 		
 	}
 	
 	public static Rediff_HomePage getobjRediff_HomePage(){
-		return PageFactory.initElements(com.epam.utils.Browser.getDriver(), Rediff_HomePage.class);
+		return PageFactory.initElements(com.pers.utils.Browser.getDriver(), Rediff_HomePage.class);
 		
 	}
 	

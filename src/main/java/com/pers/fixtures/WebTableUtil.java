@@ -1,4 +1,4 @@
-package com.epam.fixtures;
+package com.pers.fixtures;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.epam.utils.Browser;
+import com.pers.utils.Browser;
 
 public class WebTableUtil {
 

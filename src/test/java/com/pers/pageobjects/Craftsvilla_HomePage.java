@@ -1,4 +1,4 @@
-package com.epam.pageobjects;
+package com.pers.pageobjects;
 
 
 import java.util.Iterator;
@@ -10,11 +10,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.epam.fixtures.ActionsUtil;
-import com.epam.utils.Browser;
-import com.epam.utils.CustomeExceptionUtil;
-import com.epam.utils.ExcelUtil;
-import com.epam.utils.report.Log;
+import com.pers.fixtures.ActionsUtil;
+import com.pers.utils.Browser;
+import com.pers.utils.CustomeExceptionUtil;
+import com.pers.utils.ExcelUtil;
+import com.pers.utils.report.Log;
 
 public class Craftsvilla_HomePage {
 	public String strCategory;
