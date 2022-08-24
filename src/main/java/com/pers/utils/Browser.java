@@ -1,4 +1,5 @@
 package com.pers.utils;
+
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -46,8 +47,8 @@ public class Browser {
 					Driver = new SafariDriver();
 					// ThreadDriver.set(Driver);
 				} else if (strBrowserType.equalsIgnoreCase("firefox")) {
-					//String driverPath = "C://Users//" + System.getProperty("user.name")
-							//+ "//AppData//Local//Mozilla Firefox//firefox.exe";
+					// String driverPath = "C://Users//" + System.getProperty("user.name")
+					// + "//AppData//Local//Mozilla Firefox//firefox.exe";
 					String driverPath = "C://Program Files//Mozilla Firefox//firefox.exe";
 					System.setProperty("webdriver.firefox.bin", driverPath);
 					Driver = new FirefoxDriver();
@@ -59,7 +60,6 @@ public class Browser {
 			System.out.println(we.getMessage() + " Occurred....");
 		}
 	}
-	
 
 	public static WebDriver getDriver() {
 

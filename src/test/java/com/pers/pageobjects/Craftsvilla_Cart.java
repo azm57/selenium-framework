@@ -1,6 +1,5 @@
 package com.pers.pageobjects;
 
-
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -14,15 +13,15 @@ import com.pers.utils.CustomeExceptionUtil;
 import com.pers.utils.report.Log;
 
 public class Craftsvilla_Cart {
-	
+
 	WebDriver driver = Browser.getDriver();
 
-	@FindBy(xpath="//span[text()='Cart ']")
+	@FindBy(xpath = "//span[text()='Cart ']")
 	WebElement lnkCart;
-	
-	@FindBy(xpath=".//*[@id='proccedToCheckoutBtn']")
+
+	@FindBy(xpath = ".//*[@id='proccedToCheckoutBtn']")
 	WebElement btnProceedToCheckOut;
-	
+
 	@FindBys(value = { @FindBy(xpath = "//div[@check-out='']//div[@class='cart-details-cont']/div[1]") })
 	List<WebElement> productNames;
 
@@ -31,19 +30,16 @@ public class Craftsvilla_Cart {
 
 	@FindBy(xpath = "//div[text()='YOUR CART IS EMPTY']")
 	WebElement YourCartisEmptyMessage;
-	
 
 	public void navigateToCart() throws Exception {
-		if(!ActionsUtil.gFunc_ClickElement(lnkCart)){
+		if (!ActionsUtil.gFunc_ClickElement(lnkCart)) {
 			throw new CustomeExceptionUtil("Cart link not found");
 		} else {
 			Log.info("Cart link is found and clicked successfully");
 		}
-		
+
 	}
 
-
-	
 	public void verifyCartItems() throws Exception {
 // added now
 		Thread.sleep(5000);
@@ -55,15 +51,15 @@ public class Craftsvilla_Cart {
 					if (!ActionsUtil.bFunc_WaitForObjectExistance(YourCartisEmptyMessage)) {
 						throw new CustomeExceptionUtil("Cart Items:" + i + " as well as Cart Empty message not found");
 					} else {
-					Log.info("Your Cart is empty message found");
+						Log.info("Your Cart is empty message found");
 					}
-				} else if (ActionsUtil.gFunc_GetElementText(productNames.get(i)).toString()
-						.equalsIgnoreCase(Craftsvilla_ProductDetails.productDetailsMap.get("ProductName" + i).toString())) {
+				} else if (ActionsUtil.gFunc_GetElementText(productNames.get(i)).toString().equalsIgnoreCase(
+						Craftsvilla_ProductDetails.productDetailsMap.get("ProductName" + i).toString())) {
 					Log.info("Product" + i + " name found and verified successfully");
 				} else {
-									
+
 					Log.info("Product" + i + " name not verified!!!");
-					//Not sure if we have to fail the Test here
+					// Not sure if we have to fail the Test here
 				}
 
 				// Validating ProductPrice
@@ -74,7 +70,7 @@ public class Craftsvilla_Cart {
 					Log.info("Product" + i + " price found and verified sucessfully");
 				} else {
 					Log.info("Product" + i + " price not verified!!!");
-					//Not sure if we have to fail the Test here
+					// Not sure if we have to fail the Test here
 				}
 			}
 
@@ -83,6 +79,5 @@ public class Craftsvilla_Cart {
 		}
 		System.out.println("Test Completed!##############");
 	}
-	
-	
+
 }

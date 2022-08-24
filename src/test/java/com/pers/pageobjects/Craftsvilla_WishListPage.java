@@ -17,21 +17,21 @@ public class Craftsvilla_WishListPage {
 
 	@FindBys(value = { @FindBy(xpath = ".//span[@id='product-price']/b") })
 	List<WebElement> wishProductPrices;
-	
+
 	@FindBy(xpath = ".//div[@id='main']//p[text()='You have no items in your wishlist.']")
 	WebElement wishlistMessage;
-	
+
 //	.//table[@id='wishlist-table']//tr/td//li/p/a/b
-	
+
 	public void navigateToWishlist() throws Exception {
-		if(!ActionsUtil.gFunc_ClickElement(ObjectLibraryWrapper.getObjCraftsvilla_HomePage().lnkWishlist)){
+		if (!ActionsUtil.gFunc_ClickElement(ObjectLibraryWrapper.getObjCraftsvilla_HomePage().lnkWishlist)) {
 			throw new CustomeExceptionUtil("Wishlist link not found");
 		} else {
 			Log.info("Wishlist link found and clicked successfully");
 		}
-		
+
 	}
-	
+
 	public void VerifyWishlistItems() throws Exception {
 		if (!wishProductNames.equals(null) && !wishProductPrices.equals(null)
 				&& (wishProductNames.size() == wishProductPrices.size())) {
@@ -49,7 +49,7 @@ public class Craftsvilla_WishListPage {
 					Log.info("Product" + i + " name found in wishlist and verified successfully");
 				} else {
 					Log.info("Product" + i + " name not verified!!!");
-					//Not sure if we have to fail the Test here
+					// Not sure if we have to fail the Test here
 
 				}
 
@@ -61,7 +61,7 @@ public class Craftsvilla_WishListPage {
 					Log.info("Product" + i + " price found in wishlist and verified sucessfully");
 				} else {
 					Log.info("Product" + i + " price not verified!!!");
-					//Not sure if we have to fail the Test here
+					// Not sure if we have to fail the Test here
 				}
 
 			}

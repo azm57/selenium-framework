@@ -12,8 +12,7 @@ public class PropertyFileUtil {
 		String resourceName = fileName;
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		properties = new Properties();
-		try (InputStream resourceStream = loader
-				.getResourceAsStream(resourceName)) {
+		try (InputStream resourceStream = loader.getResourceAsStream(resourceName)) {
 			properties.load(resourceStream);
 		}
 
@@ -29,7 +28,7 @@ public class PropertyFileUtil {
 			mymap.put(key, value);
 		}
 
-		return(mymap);
+		return (mymap);
 	}
 
 }

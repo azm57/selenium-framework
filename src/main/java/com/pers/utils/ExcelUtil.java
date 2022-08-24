@@ -14,88 +14,76 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtil {
-	
-	public static Map<String,String> objTestDataMap = new LinkedHashMap<String,String>();
-	
+
+	public static Map<String, String> objTestDataMap = new LinkedHashMap<String, String>();
+
 //public static void main(String[] args) throws FileNotFoundException {
 
 //		@SuppressWarnings("rawtypes")
 //Map<String, String> returedSingRowData =ExcelUtil.gFunc_ReadTestData("D:\\SeleniumJavaFramework\\src\\test\\resources\\test_excelreading.xls", "Sheet1", "CartList");
 //		
-	//	System.out.println(returedSingRowData);
+	// System.out.println(returedSingRowData);
 //		
 //		//Map<String,Map<String,String>> returedMulRowData=ExcelUtil.gFunc_ReadMulTestData("test_excelreading.xls", "Sheet1", 1, 3);
 //		//System.out.println(returedMulRowData); 
 //}
 
+	public static Map<String, String> gFunc_ReadTestData(String strFilePath, String strSheetName, String TestID)
+			throws FileNotFoundException {
 
-public static Map<String,String> gFunc_ReadTestData(String strFilePath,String strSheetName,String TestID) throws FileNotFoundException
-{
-	
-	Workbook workbook = null;
-	Sheet dataSheet;
-	Row HeaderRow;
-	Row DataRow=null;
-	int intTestDataRowNo = 0;
-	FileInputStream fo =null;//to read excel as a stream.
-	File file = new File(strFilePath);//to  access excel file
-	if(!file.exists())//to check for file existence
-	{
-		return null;
-	}
-	else
-	{
-		fo = new FileInputStream(file);
-	}
-	try
-	{
-		if(strFilePath.endsWith("xlsx"))
+		Workbook workbook = null;
+		Sheet dataSheet;
+		Row HeaderRow;
+		Row DataRow = null;
+		int intTestDataRowNo = 0;
+		FileInputStream fo = null;// to read excel as a stream.
+		File file = new File(strFilePath);// to access excel file
+		if (!file.exists())// to check for file existence
 		{
-			workbook = new XSSFWorkbook(fo);
+			return null;
+		} else {
+			fo = new FileInputStream(file);
 		}
-		else if(strFilePath.endsWith("xls"))
-		{
-			workbook = new HSSFWorkbook(fo);
-		}
-		dataSheet = workbook.getSheet(strSheetName);
-		
-		
-		HeaderRow = dataSheet.getRow(0);
-		
-		int intEndRow =dataSheet.getLastRowNum();
-		
-		for(int icounter=1;icounter<=intEndRow;icounter++){
-			DataRow = dataSheet.getRow(icounter);
-			String strCellValue = DataRow.getCell(0).toString();
-			 if (strCellValue.equals(TestID)){
-				 intTestDataRowNo = icounter;
-				 break;
-			 }
-		}
-		
-		if (intTestDataRowNo==0){
-			throw new CustomeExceptionUtil("Invalid TestID");
-		}
-		else{
-			DataRow = dataSheet.getRow(intTestDataRowNo);
-			for(int iCounter =0;iCounter<=HeaderRow.getLastCellNum();iCounter++)
-				{
-				Cell cellValue = DataRow.getCell(iCounter);
-				if(cellValue != null && cellValue.toString().length() >0)
-					objTestDataMap.put(HeaderRow.getCell(iCounter).toString(), DataRow.getCell(iCounter).toString());
+		try {
+			if (strFilePath.endsWith("xlsx")) {
+				workbook = new XSSFWorkbook(fo);
+			} else if (strFilePath.endsWith("xls")) {
+				workbook = new HSSFWorkbook(fo);
+			}
+			dataSheet = workbook.getSheet(strSheetName);
+
+			HeaderRow = dataSheet.getRow(0);
+
+			int intEndRow = dataSheet.getLastRowNum();
+
+			for (int icounter = 1; icounter <= intEndRow; icounter++) {
+				DataRow = dataSheet.getRow(icounter);
+				String strCellValue = DataRow.getCell(0).toString();
+				if (strCellValue.equals(TestID)) {
+					intTestDataRowNo = icounter;
+					break;
 				}
-			System.out.println(objTestDataMap);
-		}		
+			}
+
+			if (intTestDataRowNo == 0) {
+				throw new CustomeExceptionUtil("Invalid TestID");
+			} else {
+				DataRow = dataSheet.getRow(intTestDataRowNo);
+				for (int iCounter = 0; iCounter <= HeaderRow.getLastCellNum(); iCounter++) {
+					Cell cellValue = DataRow.getCell(iCounter);
+					if (cellValue != null && cellValue.toString().length() > 0)
+						objTestDataMap.put(HeaderRow.getCell(iCounter).toString(),
+								DataRow.getCell(iCounter).toString());
+				}
+				System.out.println(objTestDataMap);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return objTestDataMap;
 	}
-	catch(Exception e){
-		e.printStackTrace();
-	}
 
-	return objTestDataMap;
-}
-
-
-	
 //	public static Map<String,String> gFunc_ReadTestData(String StrSheetPath,String strSheetName,int RowNumber) throws FileNotFoundException
 //	{
 //		Map<String,String> objMap = new LinkedHashMap<String,String>();
@@ -180,4 +168,4 @@ public static Map<String,String> gFunc_ReadTestData(String strFilePath,String st
 //		}
 //		return objMulMap;
 //	}	
-		}
+}

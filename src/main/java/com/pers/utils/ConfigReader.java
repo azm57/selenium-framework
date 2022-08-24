@@ -1,5 +1,6 @@
 
 package com.pers.utils;
+
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Properties;
@@ -14,8 +15,8 @@ public class ConfigReader {
 		try {
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();
 			resourceStream = loader.getResourceAsStream(filepath);
-			
-			//Using FileInputStream to read the file
+
+			// Using FileInputStream to read the file
 //			resourceStream = new FileInputStream(filepath);
 			pro.load(resourceStream);
 		} catch (Exception e) {

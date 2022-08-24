@@ -12,157 +12,125 @@ import org.openqa.selenium.support.ui.Select;
 import com.google.common.base.Function;
 import com.pers.utils.Browser;
 
-
 public class ActionsUtil {
 	public static Actions act = new Actions(Browser.getDriver());
-	
-	public static boolean gFunc_ClickElement(WebElement eleWebElement)
-	{
-		boolean blnStatus = false; 
-		try
-		{
+
+	public static boolean gFunc_ClickElement(WebElement eleWebElement) {
+		boolean blnStatus = false;
+		try {
 			blnStatus = bFunc_WaitForObjectExistance(eleWebElement);
-			if(blnStatus)
-			{
+			if (blnStatus) {
 				eleWebElement.click();
 			}
+		} catch (Exception e) {
 		}
-		catch(Exception e){}		
 		return blnStatus;
 	}
 
-	public static String gFunc_GetElementText(WebElement eleWebElement)
-	{
+	public static String gFunc_GetElementText(WebElement eleWebElement) {
 		boolean blnStatus = false;
-		String strText=null;
-		try
-		{
+		String strText = null;
+		try {
 			blnStatus = bFunc_WaitForObjectExistance(eleWebElement);
-			if(blnStatus)
-			{
+			if (blnStatus) {
 				strText = eleWebElement.getText();
-			}
-			else strText="";
+			} else
+				strText = "";
+		} catch (Exception e) {
 		}
-		catch(Exception e){}		
 		return strText;
 	}
-	
-	public static boolean gFunc_SendText(WebElement eleWebElement,String strText) throws Exception
-	{
-		boolean blnStatus = false; 
-		try
-		{
+
+	public static boolean gFunc_SendText(WebElement eleWebElement, String strText) throws Exception {
+		boolean blnStatus = false;
+		try {
 			blnStatus = bFunc_WaitForObjectExistance(eleWebElement);
-			if(blnStatus)
-			{
+			if (blnStatus) {
 				eleWebElement.sendKeys(strText);
 			}
+		} catch (NoSuchElementException e) {
 		}
-		catch(NoSuchElementException e){}
 		return blnStatus;
 	}
-	
-	public static boolean gFunc_SelectValue(WebElement eleWebElement,String strText) throws Exception
-	{
-		boolean blnStatus = false; 
-		try
-		{
+
+	public static boolean gFunc_SelectValue(WebElement eleWebElement, String strText) throws Exception {
+		boolean blnStatus = false;
+		try {
 			blnStatus = bFunc_WaitForObjectExistance(eleWebElement);
-			if(blnStatus)
-			{
+			if (blnStatus) {
 				Select oSelect = new Select(eleWebElement);
 				String[] arrSplit = strText.split(",");
-				for (int i=0; i< arrSplit.length; i++)
-				{
+				for (int i = 0; i < arrSplit.length; i++) {
 					oSelect.selectByVisibleText(arrSplit[i]);
 				}
 			}
+		} catch (NoSuchElementException e) {
 		}
-		catch(NoSuchElementException e){}
 		return blnStatus;
 	}
-	public static boolean bFunc_WaitForObjectExistance(final WebElement element) throws Exception
-	{
+
+	public static boolean bFunc_WaitForObjectExistance(final WebElement element) throws Exception {
 		boolean blnStatus = false;
-		//boolean handleAlert = false;
-		try
-		{
+		// boolean handleAlert = false;
+		try {
 			FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Browser.getDriver());
-			wait.pollingEvery(Browser.strPollingEvery,  TimeUnit.SECONDS);
+			wait.pollingEvery(Browser.strPollingEvery, TimeUnit.SECONDS);
 			wait.withTimeout(Browser.intMaxWait, TimeUnit.SECONDS);
-			Function<WebDriver, Boolean> function = new Function<WebDriver,Boolean>(){
-				public Boolean apply(WebDriver driver) 
-				{
+			Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>() {
+				public Boolean apply(WebDriver driver) {
 					boolean blnFound = false;
-					//boolean handleAlert = false;
+					// boolean handleAlert = false;
 					System.out.println("Waiting for Element Existance : --" + element);
-					try
-					{
-						if(element!= null && element.isDisplayed())
-						{
+					try {
+						if (element != null && element.isDisplayed()) {
 							blnFound = true;
 						}
-					}
-					catch(NoSuchElementException nse)
-					{
+					} catch (NoSuchElementException nse) {
 						blnFound = false;
-						
+
 					}
-					
+
 					return blnFound;
 				}
 			};
 			blnStatus = wait.until(function);
-		}
-		catch(Exception e){
-			blnStatus=false;
+		} catch (Exception e) {
+			blnStatus = false;
 		}
 		return blnStatus;
 	}
-	
 
-	
-	public static boolean MoveMousetoElement(WebElement eleWebElement)
-	{
-		boolean blnStatus = false; 
-		try
-		{
+	public static boolean MoveMousetoElement(WebElement eleWebElement) {
+		boolean blnStatus = false;
+		try {
 			blnStatus = ActionsUtil.bFunc_WaitForObjectExistance(eleWebElement);
-			
-			if(blnStatus)
-			{
-				
+
+			if (blnStatus) {
+
 				act.moveToElement(eleWebElement);
 				act.build().perform();
 			}
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			System.out.println("Element Not found in MoveMouseToElement Method");
-		}		
+		}
 		return blnStatus;
 	}
-	
-	
-	public static boolean MoveToAndMouseClick(WebElement eleWebElement)
-	{
+
+	public static boolean MoveToAndMouseClick(WebElement eleWebElement) {
 		boolean blnStatus = false;
-		try{
+		try {
 			blnStatus = MoveMousetoElement(eleWebElement);
-			
-			if(blnStatus)
-			{
+
+			if (blnStatus) {
 				act.click(eleWebElement);
 				act.build().perform();
 			}
-			
-		}
-		catch(Exception e){
+
+		} catch (Exception e) {
 			System.out.println("Element not clicked in MoveToAndMouseClick method");
 		}
 		return blnStatus;
-		
-	}
 
+	}
 
 }
