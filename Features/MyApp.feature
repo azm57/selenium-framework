@@ -13,7 +13,4 @@ Scenario: Add Products To Cart and Verify
 Given Launch Browser and navigate to application
 And Read Test Data
 When User Login to Application with valid Credentials
-And User navigates to Product Category Page
-And User Adds products to the cart
-Then User Navigates to Cart 
-And Verify the Cart Items
+And User navigates to Watchlist Page and Verifies number of rows

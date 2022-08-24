@@ -24,7 +24,7 @@ WebDriver Driver;
 	@Given("^Read Test Data$")
 	public void Read_Test_Data() throws Throwable {
 		//Read Test Data
-		ExcelUtil.gFunc_ReadTestData("D:\\SeleniumJavaFramework\\src\\test\\resources\\test_excelreading.xls", "Sheet1", "UsrRegistration");
+		ExcelUtil.gFunc_ReadTestData("src//test//resources//test_excelreading.xls", "Sheet1", "UsrRegistration");
 	}
 	
 	@When("^Go to registration and enter all the data and click register$")
@@ -43,13 +43,13 @@ WebDriver Driver;
 	@When("^User Login to Application with valid Credentials$")
 	public void User_Login_to_Application_with_valid_Credentials() throws Throwable {
 		//Login to the Application
-		ObjectLibraryWrapper.getObjCraftsvilla_HomePage().Login();
+		ObjectLibraryWrapper.getobjRediff_HomePage().Login();
 	}
 
-	@When("^User navigates to Product Category Page$")
+	@When("^User navigates to Watchlist Page and Verifies number of rows$")
 	public void User_navigates_to_Product_Category_Page() throws Throwable {
 		//Navigate to Product Category page
-		ObjectLibraryWrapper.getObjCraftsvilla_HomePage().NavToProdCat();
+		ObjectLibraryWrapper.getobjRediff_HomePage().NavToWatchlistAndVerify();
 	}
 
 	@When("^User Adds products to the cart$")
