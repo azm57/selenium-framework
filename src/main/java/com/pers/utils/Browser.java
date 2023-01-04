@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -36,7 +37,9 @@ public class Browser {
 			if (Driver == null) {
 				if (strBrowserType.equalsIgnoreCase("Chrome")) {
 					System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-					Driver = new ChromeDriver();
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--incognito", "--window-size=1920,1080");
+					Driver = new ChromeDriver(options);
 					ThreadDriver.set(Driver);
 				} else if (strBrowserType.equalsIgnoreCase("IE")) {
 					System.setProperty("webdriver.ie.driver", "src/test/resources/IEDriver.exe");
@@ -69,6 +72,7 @@ public class Browser {
 	public static void NavigateToURL(String baseUrl) {
 		Driver.navigate().to(baseUrl);
 		Driver.manage().window().maximize();
+		System.out.println(Driver.manage().window().getSize());
 	}
 
 	public static String strGetWindowTitle() {
