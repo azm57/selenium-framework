@@ -12,7 +12,7 @@ public class TestLevelReporting implements ITestListener {
 
 	public void onStart(ITestContext arg0) {
 
-		System.out.println("Start Of Execution(TEST)->" + arg0.getName());
+		System.out.println("Start Of Execution(TEST)-> " + arg0.getName());
 
 	}
 
@@ -20,7 +20,7 @@ public class TestLevelReporting implements ITestListener {
 
 	public void onTestStart(ITestResult arg0) {
 
-		System.out.println("Test Started->" + arg0.getName());
+		System.out.println("Test Started-> " + arg0.getName());
 
 	}
 
@@ -28,7 +28,7 @@ public class TestLevelReporting implements ITestListener {
 
 	public void onTestSuccess(ITestResult arg0) {
 
-		System.out.println("Test Pass->" + arg0.getName());
+		System.out.println("Test Pass-> " + arg0.getName());
 
 	}
 
@@ -38,7 +38,7 @@ public class TestLevelReporting implements ITestListener {
 
 		ScreenshotUtil.getScreenshot();
 
-		System.out.println("Test Failed->" + arg0.getName());
+		System.out.println("Test Failed-> " + arg0.getName());
 
 	}
 
@@ -46,7 +46,7 @@ public class TestLevelReporting implements ITestListener {
 
 	public void onTestSkipped(ITestResult arg0) {
 
-		System.out.println("Test Skipped->" + arg0.getName());
+		System.out.println("Test Skipped-> " + arg0.getName());
 
 	}
 
@@ -54,7 +54,7 @@ public class TestLevelReporting implements ITestListener {
 
 	public void onFinish(ITestContext arg0) {
 
-		System.out.println("END Of Execution(TEST)->" + arg0.getName());
+		System.out.println("END Of Execution(TEST)-> " + arg0.getName());
 
 	}
 

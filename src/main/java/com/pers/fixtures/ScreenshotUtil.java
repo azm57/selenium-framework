@@ -13,12 +13,15 @@ import com.pers.utils.Browser;
 
 public class ScreenshotUtil {
 	static File scrFile;
-	static String destpath = "D:\\SeleniumJavaFramework\\Screenshots\\";
-	static String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+	static String destpath;// = "D:\\SeleniumJavaFramework\\Screenshots\\";
+	static String timeStamp;// = new
+							// SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	// String methodname = result.getName();
-	static File destFile = new File(destpath + timeStamp + ".png");
+	static File destFile; // = new File(destpath + timeStamp + ".png");
 
 	public static void getScreenshot() {
+		destFile = getPathToStoreScreenshots();
+		System.out.println(destFile);
 
 		try {
 			scrFile = ((TakesScreenshot) Browser.getDriver()).getScreenshotAs(OutputType.FILE);
@@ -27,5 +30,12 @@ public class ScreenshotUtil {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public static File getPathToStoreScreenshots() {
+		timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		destpath = System.getProperty("user.dir");
+		destFile = new File(destpath +"/Screenshots/"+ timeStamp + ".png");
+		return destFile;
 	}
 }
