@@ -125,6 +125,7 @@ public class Rediff_HomePage {
 		} else {
 			Log.info("Signout button found and clicked successfully");
 		}
+		driver.close();
 	}
 
 }
