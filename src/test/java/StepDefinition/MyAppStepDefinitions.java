@@ -53,7 +53,7 @@ public class MyAppStepDefinitions {
 
 	@When("^User Adds products to the cart$")
 	public void User_Adds_products_to_the_cart() throws Throwable {
-		// Add products to Cart
+		// Add products to Cartt
 		ObjectLibraryWrapper.getobjCraftsvilla_ProductDetails().addProductsToCart();
 	}
 
