@@ -1,1 +1,1 @@
-# SeleniumStartUpFramework
+# selenium-framework
